@@ -1,6 +1,22 @@
 import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import localFont from '@next/font/local'
+
+const logo = localFont({
+  src: [
+    {
+      path: '../../public/fonts/Great Bromwich W01 Bold.ttf',
+      weight: '400'
+    },
+    {
+      path: '../../public/fonts/Great Bromwich W01 Bold.ttf',
+      weight: '700'
+    }
+  ],
+  variable: '--font-logo'
+})
+
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -15,7 +31,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${logo.variable} font-sans`}>
       <body className={inter.className}>{children}</body>
     </html>
   )
